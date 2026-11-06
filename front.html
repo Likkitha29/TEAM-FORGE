@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamForge - Smart Team Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <h2>✦ TeamForge</h2>
+        <p>SMART TEAM BUILDER</p>
+
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#students">Students</a>
+            <a href="#projects">Projects</a>
+            <a href="#matching">Find Teammates</a>
+            <a href="#tasks">Tasks</a>
+        </nav>
+
+        <div class="side-note">
+            Build better teams.<br>
+            Bring the right skills together.
+        </div>
+    </aside>
+
+    <main>
+        <header>
+            <div>
+                <small>YOUR WORKSPACE</small>
+                <h1>TeamForge Dashboard</h1>
+            </div>
+            <span class="avatar">TL</span>
+        </header>
+
+        <section id="dashboard" class="hero">
+            <div>
+                <small>SKILL-BASED COLLABORATION</small>
+                <h2>Build teams by skills,<br>not by guesswork.</h2>
+                <p>Discover student talent, form balanced teams and manage projects in one place.</p>
+                <a class="light-btn" href="#matching">Find teammates →</a>
+            </div>
+            <div class="hero-symbol">TF</div>
+        </section>
+
+        <div class="stats">
+            <article><small>Total Students</small><b id="studentCount">0</b></article>
+            <article><small>Projects</small><b id="projectCount">0</b></article>
+            <article><small>Tasks</small><b id="taskCount">0</b></article>
+            <article><small>Completed</small><b id="completedCount">0</b></article>
+        </div>
+
+        <section id="students">
+            <div class="heading">
+                <small>TALENT DIRECTORY</small>
+                <h2>Students & Skills</h2>
+                <p>Add students and record their skills.</p>
+            </div>
+
+            <div class="columns">
+                <form id="studentForm" class="panel">
+                    <h3>Register Student</h3>
+
+                    <label>Full Name
+                        <input id="studentName" required placeholder="Arun Kumar">
+                    </label>
+
+                    <label>Email
+                        <input id="studentEmail" type="email" required placeholder="arun@example.com">
+                    </label>
+
+                    <label>Department
+                        <input id="studentDept" required placeholder="Information Technology">
+                    </label>
+
+                    <label>Skills (comma separated)
+                        <input id="studentSkills" required placeholder="HTML, CSS, JavaScript">
+                    </label>
+
+                    <button type="submit">Add Student</button>
+                </form>
+
+                <div class="panel">
+                    <h3>Student Directory</h3>
+                    <input id="studentSearch" placeholder="Search students...">
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>STUDENT</th>
+                                    <th>DEPARTMENT</th>
+                                    <th>SKILLS</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentTable"></tbody>
+                        </table>
+                    </div>
+                    <p id="studentEmpty" class="empty">No students added yet.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="heading">
+                <small>PROJECT HUB</small>
+                <h2>Projects</h2>
+                <p>Create projects and select the required skills.</p>
+            </div>
+
+            <div class="columns">
+                <form id="projectForm" class="panel">
+                    <h3>Create Project</h3>
+
+                    <label>Project Name
+                        <input id="projectName" required placeholder="Campus Event Portal">
+                    </label>
+
+                    <label>Description
+                        <textarea id="projectDescription" placeholder="Describe your project"></textarea>
+                    </label>
+
+                    <label>Required Skills
+                        <input id="projectSkills" required placeholder="HTML, CSS, JavaScript, MySQL">
+                    </label>
+
+                    <button type="submit">Create Project</button>
+                </form>
+
+                <div class="panel">
+                    <h3>Project List</h3>
+                    <div id="projectList"></div>
+                    <p id="projectEmpty" class="empty">No projects created yet.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="matching">
+            <div class="heading">
+                <small>SMART MATCHING</small>
+                <h2>Find the Right Teammates</h2>
+                <p>Match students with the skills required by your project.</p>
+            </div>
+
+            <div class="panel">
+                <label>Choose a Project
+                    <select id="matchProject">
+                        <option value="">Select a project</option>
+                    </select>
+                </label>
+
+                <button id="matchButton" type="button">Find Matching Students</button>
+
+                <div id="matchResults" class="results empty">
+                    Choose a project to discover matching students.
+                </div>
+            </div>
+        </section>
+
+        <section id="tasks">
+            <div class="heading">
+                <small>PROJECT EXECUTION</small>
+                <h2>Task Management</h2>
+                <p>Create tasks, assign teammates and track progress.</p>
+            </div>
+
+            <div class="columns">
+                <form id="taskForm" class="panel">
+                    <h3>Create Task</h3>
+
+                    <label>Task Title
+                        <input id="taskName" required placeholder="Design login page">
+                    </label>
+
+                    <label>Project
+                        <select id="taskProject" required>
+                            <option value="">Select project</option>
+                        </select>
+                    </label>
+
+                    <label>Assign To
+                        <select id="taskAssignee">
+                            <option value="">Unassigned</option>
+                        </select>
+                    </label>
+
+                    <label>Status
+                        <select id="taskStatus">
+                            <option>To do</option>
+                            <option>In progress</option>
+                            <option>Completed</option>
+                        </select>
+                    </label>
+
+                    <button type="submit">Add Task</button>
+                </form>
+
+                <div class="panel">
+                    <h3>Task Board</h3>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>TASK</th>
+                                    <th>PROJECT</th>
+                                    <th>ASSIGNEE</th>
+                                    <th>STATUS</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="taskTable"></tbody>
+                        </table>
+                    </div>
+                    <p id="taskEmpty" class="empty">No tasks yet.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            TeamForge · Skill-based student team formation and project management
+        </footer>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
